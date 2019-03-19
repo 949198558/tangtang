@@ -2,16 +2,30 @@ server:
   port: 8080
 
 spring:
+  # 模板引擎
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    # 禁用缓存
+    cache: false
+  #静态资源路径设置
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+  #数据源
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/tangtang?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: root
+#mybatis设置
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.jiao.tangtang.mapper
-
+#分页设置
 pagehelper:
   helperDialect: mysql
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+

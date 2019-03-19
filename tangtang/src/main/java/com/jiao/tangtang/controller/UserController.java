@@ -23,7 +23,7 @@ public class UserController {
     @RequestMapping(value = "/test", produces = {"application/json;charset=UTF-8"})
     public String testThymeleaf(Model model){
         model.addAttribute("name","我是张三");
-        return "test";
+        return "index";
     }
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     public String add(){

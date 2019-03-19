@@ -41,6 +41,13 @@ public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("securityMana
     filterMap.put("/unAuth","anon");
     filterMap.put("/logout","logout");
 
+    /*不拦截静态文件*/
+    filterMap.put("/favicon.ico**", "anon");
+    filterMap.put("/css/**", "anon");
+    filterMap.put("/js/**", "anon");
+    filterMap.put("/img/**", "anon");
+    filterMap.put("/static/**", "anon");
+
 
     filterMap.put("/**","user");
 
